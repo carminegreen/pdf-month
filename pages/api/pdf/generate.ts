@@ -12,7 +12,7 @@ export default async function generate(req: NextApiRequest, res: NextApiResponse
         return res.status(400).send({ message: 'Formato chiamata non conforme!' });
     }
     const chunks: any = [];
-    const now = DateTime.now();
+    const now = DateTime.now().plus({ years: 1 });
     const months = getMonth(now.startOf("year") ,now.endOf("year"));
     const selectedMonth = months.find(m => m.month === body.month);
     if (!selectedMonth) {
